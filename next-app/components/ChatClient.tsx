@@ -32,9 +32,7 @@ export default function ChatClient() {
     });
 
     socket.on("message", (messages) => {
-
-      console.log('messages', messages);
-      
+      console.log("messages", messages);
 
       setMessages((prevState) => [...prevState, messages]);
     });
@@ -95,7 +93,7 @@ export default function ChatClient() {
         ))}
       </div>
 
-      <div style={{ display: "flex", gap: 8 }}>
+      <div className="flex flex-col md:flex-row gap-4">
         <input
           style={{ flex: 1 }}
           value={text}
@@ -104,18 +102,20 @@ export default function ChatClient() {
           className="border py-2 px-4 border-gray-200"
         />
 
-        <button
-          className="border rounded py-2 px-4 border-blue-500 cursor-pointer bg-blue-100 hover:bg-blue-200"
-          onClick={sendViaNextApi}
-        >
-          Send (via Next API)
-        </button>
-        <button
-          className="border rounded py-2 px-4 border-blue-500 cursor-pointer bg-blue-100 hover:bg-blue-200"
-          onClick={sendDirectSocket}
-        >
-          Send (direct socket)
-        </button>
+        <div className="flex gap-4">
+          <button
+            className="whitespace-nowrap w-full border rounded py-2 px-4 border-blue-500 cursor-pointer bg-blue-100 hover:bg-blue-200"
+            onClick={sendViaNextApi}
+          >
+            Send (via Next API)
+          </button>
+          <button
+            className="whitespace-nowrap w-full border rounded py-2 px-4 border-blue-500 cursor-pointer bg-blue-100 hover:bg-blue-200"
+            onClick={sendDirectSocket}
+          >
+            Send (direct socket)
+          </button>
+        </div>
       </div>
     </div>
   );
