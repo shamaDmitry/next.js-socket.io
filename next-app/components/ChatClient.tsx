@@ -66,12 +66,12 @@ export default function ChatClient() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div style={{ marginBottom: 12 }}>
+      <div className="mb-3">
         <input
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Your name"
-          className="border py-2 px-4 border-gray-200"
+          className="border py-2 px-4 border-gray-200 w-full md:w-auto"
         />
       </div>
 
@@ -95,14 +95,13 @@ export default function ChatClient() {
 
       <div className="flex flex-col md:flex-row gap-4">
         <input
-          style={{ flex: 1 }}
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Type a message"
-          className="border py-2 px-4 border-gray-200"
+          className="border py-2 px-4 border-gray-200 flex-1"
         />
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-col md:flex-row">
           <button
             className="whitespace-nowrap w-full border rounded py-2 px-4 border-blue-500 cursor-pointer bg-blue-100 hover:bg-blue-200"
             onClick={sendViaNextApi}
